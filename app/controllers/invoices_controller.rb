@@ -11,4 +11,9 @@ class InvoicesController < ApplicationController
     invoice = Invoice.create(date: Date.today, due_date: Date.today + 30.days, user: current_user, invoice_number: invoice_number)
     redirect_to invoices_path
   end
+
+  def edit
+    @invoice = Invoice.find(params[:id])
+  end
+
 end

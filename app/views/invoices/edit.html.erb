@@ -1,0 +1,12 @@
+<%= form_with model: @invoice, url: invoices_path(@invoice) do |form| %>
+  <h2>Invoice</h2>
+  <%= form.label :invoice_number %>
+  <%= form.text_field :invoice_number, value: @invoice.invoice_number %>
+  <%= form.label :date %>
+  <%= form.text_field :date, value: @invoice.date %>
+  <%= form.label :due_date %>
+  <%= form.text_field :due_date, value: @invoice.due_date %>
+  <h2>Customer</h2>
+  <%= form.select :customer_id, current_user.customers.collect { |customer| [customer.name, customer.id] } %>
+<% end %>
+
