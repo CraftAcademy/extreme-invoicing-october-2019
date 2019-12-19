@@ -1,5 +1,5 @@
 <h2>Your invoices</h2>
-<%= link_to 'Create new invoice', new_invoice_path, remote: true %>
+<%= link_to 'Create new invoice', new_invoice_path %>
 <% @invoices.each do |invoice| %>
   <ul>
     Invoice number: <%= invoice.id %>

@@ -2,7 +2,7 @@ class InvoicesController < ApplicationController
   before_action :authenticate_user!
   
   def index
-    @invoices = Invoice.all
+    @invoices = current_user.invoices
     @customers = current_user.customers
   end
 
