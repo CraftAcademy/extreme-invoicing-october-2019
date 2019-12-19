@@ -24,8 +24,8 @@ Feature: User can fill out invoice
     And I fill in "Unit" with "pcs"
     And I fill in "Unit price" with "1000"
     And I fill in "VAT" with "25"
-    Then I should see "Total incl. VAT 12 500,00"
     When I click on "Save draft"
+    Then I should see "Total incl. VAT 12 500,00"
     Then I should see "Invoice draft successfully saved"
     And I should be on the index page
     And I should see "Amount: 12 500,00"
