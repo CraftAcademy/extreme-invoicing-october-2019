@@ -14,11 +14,11 @@ Feature: User can fill out invoice
 
     And I am logged in as "user@user.com"
     And I am on the index page
+    And I click on "Create new invoice"
 
   Scenario: User can fill out invoice with customer and articles
-    When I click on "Create new invoice"
-    And I click on "Edit invoice" for "Invoice 1"
-    When I select "ACME AB"
+    When I click on "Edit invoice" for "Invoice 1"
+    And I select "ACME AB"
     And I fill in "Item" with "Article"
     And I fill in "Quantity" with "10"
     And I fill in "Unit" with "pcs"

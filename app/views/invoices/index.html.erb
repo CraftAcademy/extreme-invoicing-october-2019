@@ -1,10 +1,11 @@
 <h2>Your invoices</h2>
 <%= link_to 'Create new invoice', new_invoice_path %>
 <% @invoices.each do |invoice| %>
-  <ul>
-    Invoice number: <%= invoice.id %>
+  <ul id="invoice_<%= invoice.invoice_number %>">
+    Invoice number: <%= invoice.invoice_number %>
     Invoice date: <%= invoice.date %>
     Invoice due date: <%= invoice.due_date %>
+    <%= link_to 'Edit invoice' %>
   </ul>
 <% end %>
 

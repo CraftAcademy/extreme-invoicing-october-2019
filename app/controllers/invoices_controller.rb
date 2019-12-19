@@ -7,7 +7,8 @@ class InvoicesController < ApplicationController
   end
 
   def new
-    invoice = Invoice.create(date: Date.today, due_date: Date.today + 30.days, user: current_user)
+    invoice_number = current_user.invoices.count + 1
+    invoice = Invoice.create(date: Date.today, due_date: Date.today + 30.days, user: current_user, invoice_number: invoice_number)
     redirect_to invoices_path
   end
 end
