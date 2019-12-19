@@ -18,7 +18,7 @@ Feature: User can fill out invoice
 
   Scenario: User can fill out invoice with customer and articles
     When I click on "Edit invoice" for "Invoice 1"
-    And I select "ACME AB"
+    And I select "ACME AB" from "Customer"
     And I fill in "Item" with "Article"
     And I fill in "Quantity" with "10"
     And I fill in "Unit" with "pcs"

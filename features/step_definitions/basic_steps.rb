@@ -13,3 +13,12 @@ Given('(I/he/she) click(s) on {string} for {string}') do |element, invoice|
   end
 end
 
+Then("I fill in {string} with {string}") do |input, content|
+  fill_in input, with: content
+end
+
+When("I select {string} from {string}") do |customer, selectbox|
+  select customer, from: selectbox
+end
+
+

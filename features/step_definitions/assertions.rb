@@ -9,6 +9,3 @@ end
 Then("I should not see {string}") do |content|
   expect(page).not_to have_content content
 end
-Then("I fill in {string} with {string}") do |input, content|
-  fill_in input, with: content
-end
