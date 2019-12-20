@@ -22,6 +22,12 @@ Feature: User can create invoice
     # And I click on "Create new invoice"
     And I select "Craft AB" from "Customer"
     And I click on "Add row"
+    And I fill in "Item" with "Article"
+    And I fill in "Quantity" with "10"
+    And I fill in "Unit" with "pcs"
+    And I fill in "Unit price" with "1000"
+    And I fill in "VAT" with "25"
+    When I click on "Save row"
     # Then stop
     Then I should see "Invoice number:"
 

@@ -26,7 +26,7 @@ Feature: User can fill out invoice
     And I fill in "Unit price" with "1000"
     And I fill in "VAT" with "25"
     When I click on "Save draft"
-    Then stop
+    # Then stop
     Then I should see "Total incl. VAT 12 500,00"
     Then I should see "Invoice draft successfully saved"
     And I should be on the index page

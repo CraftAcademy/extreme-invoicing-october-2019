@@ -1,6 +1,6 @@
-<%= form_for url: invoice_rows_path, remote: true, format: :js do |row_form| %>
-  <%= row_form.label :item %>
-  <%= row_form.text_field :item %>
+<%= form_with url: invoice_rows_path, scope: :row, id: :row_form, local: false do |row_form| %>
+  <%= row_form.label :article_id, 'Article' %>
+  <%= row_form.text_field :article_id %>
   <%= row_form.label :quantity %>
   <%= row_form.text_field :quantity %>
   <%= row_form.label :unit %>
@@ -11,3 +11,4 @@
   <%= row_form.text_field :vat %>
   <%= row_form.submit 'Save row'%>
 <% end %>
+

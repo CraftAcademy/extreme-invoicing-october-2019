@@ -1,0 +1,14 @@
+<table style="min-width: 100%;" id="row_display_table">
+  <tr>
+    <th align="left"><strong>Name</strong></th>
+    <th align="left"><strong>Price p unit</strong></th>
+    <th align="right"><strong>Total</strong></th>
+  </tr>
+  <% rows.each do |row| %>
+    <tr>
+      <td align="left"><%= row.article.name %></td>
+      <td align="left"><%= row.article.unit_price %></td>
+      <td align="right"><%= row.article.unit_price * row.quantity %></td>
+    </tr>
+  <% end %>
+</table>
