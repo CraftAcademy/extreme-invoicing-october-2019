@@ -26,7 +26,5 @@
   <%= form.submit 'Save draft' %>
 <% end %> 
   Total incl. VAT <%= number_to_currency @invoice.total, separator: ",", format: "%n %u", unit: '', delimiter: ' ' %>
-<% if @total %>
-<% end %>
 
 
