@@ -21,4 +21,8 @@ When("I select {string} from {string}") do |customer, selectbox|
   select customer, from: selectbox
 end
 
+Then('stop') do
+  binding.pry
+end
+
 

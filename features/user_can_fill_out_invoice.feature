@@ -1,3 +1,4 @@
+@javascript
 Feature: User can fill out invoice
   As a user
   In order to get the invoice that I need
@@ -24,6 +25,7 @@ Feature: User can fill out invoice
     And I fill in "Unit" with "pcs"
     And I fill in "Unit price" with "1000"
     And I fill in "VAT" with "25"
+    Then stop
     When I click on "Save draft"
     Then I should see "Total incl. VAT 12 500,00"
     Then I should see "Invoice draft successfully saved"
