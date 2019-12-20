@@ -12,8 +12,10 @@ class InvoicesController < ApplicationController
   def new
     invoice_number = current_user.invoices.count + 1
     # TODO: refactor this to use the create action
-    invoice = Invoice.create(date: Date.today, due_date: Date.today + 30.days, user: current_user, invoice_number: invoice_number)
-    redirect_to invoices_path
+    @invoice = Invoice.create(date: Date.today,
+                              due_date: Date.today + 30.days,
+                              user: current_user,
+                              invoice_number: invoice_number)
   end
 
   def edit

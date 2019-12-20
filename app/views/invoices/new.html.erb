@@ -1,0 +1,21 @@
+<%= form_with model: @invoice do |form| %>
+  <h2>Invoice</h2>
+  <%= form.label :invoice_number %>
+  <%= form.text_field :invoice_number, value: @invoice.invoice_number, disabled: true %>
+  <%= form.label :date %>
+  <%= form.text_field :date, value: @invoice.date %>
+  <%= form.label :due_date %>
+  <%= form.text_field :due_date, value: @invoice.due_date %>
+  
+  <h2>Customer</h2>
+  <%= form.label :customer %>
+  <%= form.select :customer, current_user.customers.collect { |customer| [customer.name, customer.id] } %>
+  
+  <h2>Articles</h2>
+  <div id="rows"></div>
+  <%= link_to 'Add row', new_invoice_row_path, remote: true %>
+
+  <%= form.submit 'Save invoice' %>
+<% end %> 
+  Total incl. VAT <%= number_to_currency @invoice.total, separator: ",", format: "%n %u", unit: '', delimiter: ' ' %>
+

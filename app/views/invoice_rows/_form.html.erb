@@ -1,0 +1,13 @@
+<%= form_with url: new_invoice_row_path do |form| %>
+  <%= form.label :item %>
+  <%= form.text_field :item %>
+  <%= form.label :quantity %>
+  <%= form.text_field :quantity %>
+  <%= form.label :unit %>
+  <%= form.text_field :unit %>
+  <%= form.label :unit_price %>
+  <%= form.text_field :unit_price %>
+  <%= form.label :vat, 'VAT' %>
+  <%= form.text_field :vat %>
+  <%= form.submit 'Save row'%>
+<% end %>
