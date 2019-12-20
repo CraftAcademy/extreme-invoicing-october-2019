@@ -1,0 +1,19 @@
+<h2>Company Profile</h2>
+<%= form_with model: @company do |form|%>
+  <%= form.label :name%>
+  <%= form.text_field :name%>
+  <%= form.label :identification_no%>
+  <%= form.text_field :identification_no%>
+  <%= form.label :vat_no%>
+  <%= form.text_field :vat_no%>
+  <%= form.label :address%>
+  <%= form.text_field :address%>
+  <%= form.label :postcode%>
+  <%= form.text_field :postcode%>
+  <%= form.label :city%>
+  <%= form.text_field :city%>
+  <%= form.label :phone%>
+  <%= form.text_field :phone%>
+
+  <%= form.submit "Update profile" %>
+<% end %> 

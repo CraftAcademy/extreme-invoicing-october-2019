@@ -12,4 +12,12 @@ end
 
 Then("I should be on the index page") do
   expect(current_path).to eq root_path
+end 
+
+Then("I should be on the Company Profile page") do
+  expect(current_path).to eq company_path(@user.company.id)
 end
+
+Then("I should be on the Invoices page") do
+  expect(current_path).to eq invoices_path
+end 

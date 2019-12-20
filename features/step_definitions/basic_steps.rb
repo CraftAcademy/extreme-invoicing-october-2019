@@ -13,10 +13,6 @@ Given('(I/he/she) click(s) on {string} for {string}') do |element, invoice|
   end
 end
 
-Then("I fill in {string} with {string}") do |input, content|
-  fill_in input, with: content
-end
-
 When("I select {string} from {string}") do |customer, selectbox|
   select customer, from: selectbox
 end
@@ -25,4 +21,11 @@ Then('stop') do
   binding.pry
 end
 
+When("I fill in {string} with {string}") do |input, content|
+  fill_in input, with: content
+end
+
+Given("I am on the new company page") do
+  visit new_company_path
+end 
 

@@ -6,6 +6,7 @@ class InvoicesController < ApplicationController
   def index
     @invoices = current_user.invoices
     @customers = current_user.customers
+    @articles = current_user.articles
   end
 
   def new

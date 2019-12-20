@@ -21,3 +21,14 @@
     City: <%= customer.city %>
   </ul>
 <% end %>
+
+<h2>Your article</h2>
+<%= link_to 'Add new article', new_article_path %>
+<% @articles.each do |article| %>
+  <ul>
+    Name: <%= article.name %>
+    Unit: <%= article.unit %>
+    Unit_price: <%= article.unit_price %>
+    taxrate: <%= article.taxrate %>
+  </ul>
+<% end %>

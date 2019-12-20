@@ -3,5 +3,7 @@ Rails.application.routes.draw do
   resources :invoices, only: [:index, :new, :edit, :update]
   resources :customers, only: [:create, :new]
   root controller: :landing, action: :index
+  resources :companies, only: [:create, :show, :new]
+  resources :articles, only: [:create, :new]
 end
 
