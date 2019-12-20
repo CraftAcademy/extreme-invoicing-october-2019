@@ -21,7 +21,8 @@ Feature: User can create invoice
     And I click on "Create invoice"
     # And I click on "Create new invoice"
     And I select "Craft AB" from "Customer"
-    Then stop
+    And I click on "Add row"
+    # Then stop
     Then I should see "Invoice number:"
 
   Scenario: Visitor can not create an invoice
