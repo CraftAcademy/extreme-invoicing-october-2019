@@ -17,6 +17,11 @@ Feature: User can create invoice
     And the following articles exist
       | name        | unit_price | user          |
       | Programming | 100        | user@user.com |
+      | Support     | 50         | user@user.com |
+
+  Scenario: Visitor can not create an invoice
+    And I try to visit the invoice create page
+    Then I should see "You need to sign in or sign up before continuing."
 
   Scenario: Logged in user can create an invoice
     Given I am logged in as "user@user.com"
@@ -26,9 +31,10 @@ Feature: User can create invoice
     And I click on "Add row"
     And I select "Programming" from "Article"
     And I fill in "Quantity" with "10"
-    When I click on "Save row"
-    Then I should see "Total incl. VAT 1000kr"
+    And I click on "Save row"
+    And I click on "Add row"
+    And I select "Support" from "Article"
+    And I fill in "Quantity" with "20"
+    And I click on "Save row"
+    Then I should see "Total incl. VAT 2 000,00 kr"
 
-  Scenario: Visitor can not create an invoice
-    And I try to visit the invoice create page
-    Then I should see "You need to sign in or sign up before continuing."

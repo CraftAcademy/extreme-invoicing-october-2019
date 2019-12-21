@@ -10,5 +10,4 @@ Feature: Visitor can find information about the service
     Then I should see "EXTREME INVOICING"
     And I should see "Sign up"
     And I should see "Log in"
-    And I should see "Create invoice"
     And I should see "Info about Invoicing Service"

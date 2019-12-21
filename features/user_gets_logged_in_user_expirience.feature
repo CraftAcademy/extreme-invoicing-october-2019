@@ -16,5 +16,5 @@ Feature: User gets logged in user experience
     And I should not see "Sign up"
     And I should not see "Log in"
     And I should not see "Info about Invoicing Service"
-    And I should see "Create new invoice"
+    And I should see "Create invoice"
     And I should see "Log out"

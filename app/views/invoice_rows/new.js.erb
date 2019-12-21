@@ -10,7 +10,7 @@ var displayResponse = (event, data) => {
     newRowForm.firstElementChild.remove()
     newRowForm.innerHTML = data.html
     link.style.display = ''
-    invoiceTotalDisplay.innerHTML = data.total + 'kr'
+    invoiceTotalDisplay.innerHTML = data.total.toLocaleString('sv', {style: 'currency', currency: 'SEK'})
   } else {
     newRowForm.insertAdjacentHTML('beforeend', data.error);
   }  
