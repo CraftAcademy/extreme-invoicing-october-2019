@@ -3,4 +3,12 @@ class Invoice < ApplicationRecord
   
   belongs_to :user
   has_many :invoice_rows
+
+  def total
+    total = 0
+    invoice_rows.each do |row|
+      total += row.article.unit_price * row.quantity
+    end
+    total
+  end
 end

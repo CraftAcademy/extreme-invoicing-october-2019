@@ -8,7 +8,7 @@ class InvoiceRowsController < ApplicationController
 
     if new_row.persisted?
       html = render_to_string('_row_display', formats: :html, layout: false, locals: {rows: invoice.reload.invoice_rows})
-      render json: {html: html}, format: :json
+      render json: {html: html, total: invoice.reload.total}, format: :json
     else
       render json: {error: "<p name='error' style='color: red;'>That didn't fly: #{new_row.errors.full_messages.to_sentence}</p>"}, format: :json, status: :unprocessable_entity
     end
