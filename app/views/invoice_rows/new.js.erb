@@ -19,6 +19,7 @@ var displayResponse = (event, data) => {
 
 newRowForm.innerHTML += "<%= j @html %>"
 formDisplayDiv.appendChild(newRowForm)
+
 newRowForm.addEventListener('submit', () => {
   event.preventDefault()
   var data = window.serialize(newRowForm.firstElementChild)

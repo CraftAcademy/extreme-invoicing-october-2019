@@ -7,8 +7,8 @@ class Invoice < ApplicationRecord
   def total
     total = 0
     invoice_rows.each do |row|
-      total += row.article.unit_price * row.quantity
-    end
+      total += row.article.unit_price * (row&.quantity || 1)
+    end unless invoice_rows.empty?
     total
   end
 end
