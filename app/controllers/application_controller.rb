@@ -6,6 +6,6 @@ class ApplicationController < ActionController::Base
   private
 
   def invoice_not_paid_for
-    redirect_to invoices_path, notice: "You have to pay for this invoice before you can view it"
+    redirect_to invoices_path, notice: "You have to pay for invoice no. #{params[:id]} before you can view it"
   end
 end

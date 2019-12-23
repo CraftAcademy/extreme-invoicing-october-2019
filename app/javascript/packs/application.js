@@ -15,3 +15,11 @@ require("channels")
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+
+document.addEventListener('turbolinks:load', () => {
+  let stripeForm = document.getElementById('payment_form')
+
+  if (stripeForm) {
+
+  }
+})

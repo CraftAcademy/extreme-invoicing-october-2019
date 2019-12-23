@@ -6,6 +6,7 @@
     Invoice date: <%= invoice.date %>
     Invoice due date: <%= invoice.due_date %>
     <%= link_to "View invoice #{invoice.id}", invoice_path(invoice.id) %>
+    <%= link_to "Pay Invoice #{invoice.id}", new_payment_path(record: invoice.id) if !invoice.paid_for? %>
   </ul>
 <% end %>
 

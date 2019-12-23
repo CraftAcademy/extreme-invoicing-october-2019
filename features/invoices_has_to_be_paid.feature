@@ -22,5 +22,5 @@ Feature: Invoices has to be paid to be viewed
 
   Scenario: User can not see unpayed invoice
     When I click on "View invoice 2"
-    Then I should see "You have to pay for this invoice before you can view it"
+    Then I should see "You have to pay for invoice no. 2 before you can view it"
 

@@ -1,0 +1,9 @@
+<%= form_with url: payments_path, id: :payment_form, method: :post, local: true do |form| %>
+
+  <div id="card-number"></div>
+  <div id="card-expiry"></div>
+  <div id="card-cvc"></div>
+
+  <%= form.submit "Pay for Invoice no. #{@invoice.id}" %>
+<% end %>
+
