@@ -3,6 +3,7 @@ class Invoice < ApplicationRecord
   
   belongs_to :user
   has_many :invoice_rows
+  belongs_to :customer, optional: true
 
   def total
     total = 0

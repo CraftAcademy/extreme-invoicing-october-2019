@@ -10,7 +10,7 @@
   <% @invoices.each do |invoice| %>
     <tr id="invoice_<%= invoice.invoice_number %>">
       <td align="left"><%= invoice.invoice_number %></td>
-      <td align="left"><%= "Placeholder" %></td>
+      <td align="left"><%= invoice.customer.name %></td>
       <td align="left"><%= invoice.date %></td>
       <td align="left"><%= invoice.due_date  %></td>
       <td align="right"><%= number_to_currency invoice.total, locale: 'sv-SE' %></td>

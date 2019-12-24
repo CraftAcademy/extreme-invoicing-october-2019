@@ -11,7 +11,7 @@ end
 
 
 Webdrivers::Chromedriver.required_version = 2.44
-chrome_options = %w[ 
+chrome_options = %w[ headless
                      no-sandbox
                      disable-popup-blocking
                      disable-gpu

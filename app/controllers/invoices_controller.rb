@@ -23,15 +23,14 @@ class InvoicesController < ApplicationController
   end
 
   def update
-    # binding.pry
     total = calculate_total(params)
-
+    customer = Customer.find(params[:invoice][:customer])
     invoice = Invoice.find(params[:id])
-    invoice.update(total: total)
+    invoice.update(total: total, customer: customer)
 
     if invoice.errors.empty?
-      render :update
-      # redirect_to root_path, notice: 'Invoice draft successfully saved'
+      # render :update
+      redirect_to root_path, notice: 'Invoice successfully saved'
     else
       redirect_to request.referer, notice: 'There was an error'
     end
