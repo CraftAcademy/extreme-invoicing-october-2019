@@ -29,7 +29,10 @@ Given("I am on the new company page") do
   visit new_company_path
 end 
 
-
 Given("I try to visit the invoice create page") do
   visit new_invoice_path
 end
+
+Given("I am on the invoices page") do
+  visit invoices_path
+end 

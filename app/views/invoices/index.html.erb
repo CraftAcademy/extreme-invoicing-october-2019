@@ -15,6 +15,7 @@
       <td align="left"><%= invoice.due_date  %></td>
       <td align="right"><%= number_to_currency invoice.total, locale: 'sv-SE' %></td>
       <td align="right"><%= link_to 'Edit invoice', edit_invoice_path(invoice) %></td>
+      <td align="right"><%= link_to "View invoice #{invoice.invoice_number}", invoice_path(invoice.id) %></td>
     </tr>
   <% end %>
 </table>

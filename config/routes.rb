@@ -2,7 +2,7 @@
 
 Rails.application.routes.draw do
   devise_for :users
-  resources :invoices, only: %i[index new edit update] do
+  resources :invoices, only: %i[index new edit update show] do
     resources :invoice_rows, only: %i[create new], as: :rows
   end
   resources :customers, only: %i[create new]

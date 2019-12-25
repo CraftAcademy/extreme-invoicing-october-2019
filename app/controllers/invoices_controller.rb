@@ -9,6 +9,11 @@ class InvoicesController < ApplicationController
     @articles = current_user.articles
   end
 
+  def show
+    @invoice = Invoice.find(params[:id])
+    authorize @invoice
+  end
+
   def new
     invoice_number = current_user.invoices.count + 1
     # TODO: refactor this to use the create action
