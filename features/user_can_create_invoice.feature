@@ -39,4 +39,5 @@ Feature: User can create invoice
     Then I should see "Total incl. VAT 2 000,00 kr"
     When I click on "Save invoice"
     Then I should see "Craft AB" for "Invoice 1"
-
+    When I click on "Edit invoice" for "Invoice 1"
+    Then I should see "Programming"

@@ -9,7 +9,7 @@
   
   <h2>Customer</h2>
   <%= form.label :customer %>
-  <%= form.select :customer, current_user.customers.collect { |customer| [customer.name, customer.id] } %>
+  <%= form.select :customer, current_user.customers.collect { |customer| [customer.name, customer.id] }, prompt: 'Select customer' %>
   
   <h2>Articles</h2>
   <div id="rows"></div>

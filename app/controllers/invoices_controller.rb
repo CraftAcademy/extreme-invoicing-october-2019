@@ -4,7 +4,7 @@ class InvoicesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @invoices = current_user.invoices
+    @invoices = current_user.invoices.order(invoice_number: :desc)
     @customers = current_user.customers
     @articles = current_user.articles
   end
