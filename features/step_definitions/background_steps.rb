@@ -41,3 +41,10 @@ Given('the following article(s) exist') do |table|
     create(:article, article_attrs.merge(user: user))
   end
 end
+
+Then("I should see {string} for {string}") do |content, invoice|
+  invoice_number = invoice.gsub(/.* /, "")
+  within("#invoice_#{invoice_number}") do
+    expect(page).to have_content content
+  end
+end

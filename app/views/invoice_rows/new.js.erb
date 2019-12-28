@@ -1,0 +1,40 @@
+var formDisplayDiv = document.getElementById('rows')
+var newRowForm = document.createElement('div')
+var link = document.getElementById('add_row_button')
+var invoiceTotalDisplay = document.getElementById('invoice_total')
+
+var displayResponse = (event, data) => {
+  if (event.target.status === 200) {
+    var rowDisplayTable = document.getElementById('row_display_table')
+    rowDisplayTable && rowDisplayTable.remove()
+    newRowForm.firstElementChild.remove()
+    newRowForm.innerHTML = data.html
+    link.style.display = ''
+    invoiceTotalDisplay.innerHTML = data.total.toLocaleString('sv', {style: 'currency', currency: 'SEK'})
+  } else {
+    newRowForm.insertAdjacentHTML('beforeend', data.error);
+  }  
+  return
+}
+
+newRowForm.innerHTML += "<%= j @html %>"
+formDisplayDiv.appendChild(newRowForm)
+
+newRowForm.addEventListener('submit', () => {
+  event.preventDefault()
+  var data = window.serialize(newRowForm.firstElementChild)
+  Rails.ajax({
+    url: "<%= j invoice_rows_path(@invoice) %>",
+    type: "POST",
+    data: serialize(newRowForm.firstElementChild),
+    success: (data) => {displayResponse(event, data)},
+    error: (data) => {displayResponse(event, data)}
+  })  
+})
+
+if (formDisplayDiv && formDisplayDiv.lastElementChild.firstElementChild.nodeName === 'FORM') {
+  link.style.display = 'none'
+} else {
+  link.style.display = ''
+}
+

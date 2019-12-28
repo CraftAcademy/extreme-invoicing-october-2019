@@ -20,6 +20,8 @@ group :development, :test do
   gem 'cucumber-rails', require: false
   gem 'database_cleaner'
   gem 'coveralls', require: false
+  gem 'selenium-webdriver'
+  gem 'webdrivers', '~> 4.0'
 end
 
 group :development do

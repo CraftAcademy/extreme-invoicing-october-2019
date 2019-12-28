@@ -1,33 +1,62 @@
 <h2>Your invoices</h2>
-<%= link_to 'Create new invoice', new_invoice_path, remote: true %>
-<% @invoices.each do |invoice| %>
-  <ul>
-    Invoice number: <%= invoice.id %>
-    Invoice date: <%= invoice.date %>
-    Invoice due date: <%= invoice.due_date %>
-    <%= link_to "View invoice #{invoice.id}", invoice_path(invoice.id) %>
-  </ul>
-<% end %>
+<table style="min-width: 50%;" id="row_display_table">
+  <tr>
+    <th align="left"><strong>Number</strong></th>
+    <th align="left"><strong>Customer</strong></th>
+    <th align="left"><strong>Date</strong></th>
+    <th align="left"><strong>Due date</strong></th>
+    <th align="right"><strong>Amount</strong></th>
+  </tr>
+  <% @invoices.each do |invoice| %>
+    <tr id="invoice_<%= invoice.invoice_number %>">
+      <td align="left"><%= invoice.invoice_number %></td>
+      <td align="left"><%= invoice.customer ? invoice.customer.name : '-' %></td>
+      <td align="left"><%= invoice.date %></td>
+      <td align="left"><%= invoice.due_date  %></td>
+      <td align="right"><%= number_to_currency invoice.total, locale: 'sv-SE' %></td>
+      <td align="right"><%= link_to 'Edit invoice', edit_invoice_path(invoice) %></td>
+      <td align="right"><%= link_to "View invoice #{invoice.invoice_number}", invoice_path(invoice.id) %></td>
+    </tr>
+  <% end %>
+</table>
 
 <h2>Your customers</h2>
 <%= link_to 'Add new customer', new_customer_path %>
-<% @customers.each do |customer| %>
-  <ul>
-    Company name: <%= customer.name %>
-    Organisation number: <%= customer.organisation_number %>
-    Address: <%= customer.address %>
-    Postcode: <%= customer.postcode %>
-    City: <%= customer.city %>
-  </ul>
-<% end %>
+<table style="min-width: 50%;" id="row_display_table">
+  <tr>
+    <th align="left"><strong>Customer</strong></th>
+    <th align="left"><strong>Organisation number</strong></th>
+    <th align="left"><strong>Address</strong></th>
+    <th align="left"><strong>Postcode</strong></th>
+    <th align="left"><strong>City</strong></th>
 
-<h2>Your article</h2>
+  </tr>
+  <% @customers.each do |customer|  %>
+    <tr>
+      <td align="left"><%= customer.name %></td>
+      <td align="left"><%= customer.organisation_number %></td>
+      <td align="left"><%= customer.address %></td>
+      <td align="left"><%= customer.postcode  %></td>
+      <td align="left"><%= customer.city %></td>
+    </tr>
+  <% end %>
+</table>
+
+<h2>Your articles</h2>
 <%= link_to 'Add new article', new_article_path %>
-<% @articles.each do |article| %>
-  <ul>
-    Name: <%= article.name %>
-    Unit: <%= article.unit %>
-    Unit_price: <%= article.unit_price %>
-    taxrate: <%= article.taxrate %>
-  </ul>
-<% end %>
+<table style="min-width: 50%;" id="row_display_table">
+  <tr>
+    <th align="left"><strong>Article</strong></th>
+    <th align="left"><strong>Unit</strong></th>
+    <th align="right"><strong>Unit price</strong></th>
+    <th align="right"><strong>VAT%</strong></th>
+  </tr>
+  <% @articles.each do |article|  %>
+    <tr>
+      <td align="left"><%= article.name %></td>
+      <td align="left"><%= article.unit %></td>
+      <td align="right"><%= article.unit_price %></td>
+      <td align="right"><%= number_to_percentage article.taxrate  * 100, precision: 0 %></td>
+    </tr>
+  <% end %>
+</table>

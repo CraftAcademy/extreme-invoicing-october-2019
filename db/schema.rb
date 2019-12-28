@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_20_104910) do
+ActiveRecord::Schema.define(version: 2019_12_23_100927) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,6 +52,16 @@ ActiveRecord::Schema.define(version: 2019_12_20_104910) do
     t.index ["user_id"], name: "index_customers_on_user_id"
   end
 
+  create_table "invoice_rows", force: :cascade do |t|
+    t.bigint "invoice_id", null: false
+    t.bigint "article_id", null: false
+    t.integer "quantity"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["article_id"], name: "index_invoice_rows_on_article_id"
+    t.index ["invoice_id"], name: "index_invoice_rows_on_invoice_id"
+  end
+
   create_table "invoices", force: :cascade do |t|
     t.date "date"
     t.date "due_date"
@@ -62,6 +72,9 @@ ActiveRecord::Schema.define(version: 2019_12_20_104910) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "invoice_number"
+    t.bigint "customer_id"
+    t.index ["customer_id"], name: "index_invoices_on_customer_id"
     t.index ["user_id"], name: "index_invoices_on_user_id"
   end
 
@@ -80,5 +93,8 @@ ActiveRecord::Schema.define(version: 2019_12_20_104910) do
   add_foreign_key "articles", "users"
   add_foreign_key "companies", "users"
   add_foreign_key "customers", "users"
+  add_foreign_key "invoice_rows", "articles"
+  add_foreign_key "invoice_rows", "invoices"
+  add_foreign_key "invoices", "customers"
   add_foreign_key "invoices", "users"
 end
